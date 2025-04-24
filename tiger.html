@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiger</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-next="cheetah.html" data-prev="lion.html">
+  <img src="https://cdn.britannica.com/94/494-050-A674AD3A/Fallow-deer-dama-dama.jpg" alt="Tiger" />
+  <div class="header-boxes">
+    <div class="header-box">2025-04-24</div>
+    <div class="header-box">Tiger</div>
+  </div>
+  <div class="description">
+    Tigers are solitary and powerful big cats. They are excellent swimmers.
+  </div>
+  <div class="diet-box">Carnivore</div>
+
+  <script>
+    let startX = 0, endX = 0;
+    document.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    document.addEventListener('touchend', e => {
+      endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) window.location.href = document.body.dataset.next;
+      if (endX - startX > 50) window.location.href = document.body.dataset.prev;
+    });
+  </script>
+</body>
+</html>
